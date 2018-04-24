@@ -106,5 +106,5 @@ FROM books;
         )
     AS quantity
     FROM books;
-    
-    
+  
+
