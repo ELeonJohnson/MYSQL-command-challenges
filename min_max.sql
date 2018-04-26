@@ -23,3 +23,12 @@ SELECT title, pages FROM books ORDER BY pages ASC LIMIT 1;
 SELECT title, pages FROM books ORDER BY pages DESC LIMIT 1;
 --These two take less time for mysql to run because it's only one query
 
+--Using MIN & MAX with GROUP BY
+--Finding the year each author published their first book
+SELECT author_fname, author_lname, MIN(released_year) FROM books GROUP BY author_lname, author_fname;
+
+--Finding the longest page count for each author
+SELECT author_fname, author_lname, MAX(pages) FROM books GROUP BY author_lname, author_fname;
+
+--Making the last query more readable using CONCAT'
+SELECT CONCAT(author_fname, ' ', author_lname) AS author, MAX(pages) AS 'longest book by page' FROM books GROUP BY author_lname, author_fname;
